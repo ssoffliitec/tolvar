@@ -1,0 +1,3 @@
+class Recordatorio < ApplicationRecord
+	#...
+end

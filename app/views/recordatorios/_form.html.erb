@@ -1,0 +1,27 @@
+<%= form_with(model: recordatorio, local: true) do |form| %>
+  <% if recordatorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recordatorio.errors.count, "error") %> prohibited this recordatorio from being saved:</h2>
+
+      <ul>
+      <% recordatorio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :recordatorio_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :texto %>
+    <%= form.text_field :texto, id: :recordatorio_texto %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
