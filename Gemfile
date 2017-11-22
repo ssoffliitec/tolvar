@@ -14,7 +14,7 @@ gem 'rails', '~> 5.1.4'
 #USAMOS COMO DBMS POSTGRE PARA HACER DEPLOY A HEROKU
 gem 'pg'
 
-# USAR PARA SEGURIDAD
+# USAR PARA AUTH DE USUARIO
 gem 'devise'
 
 #Dibuja el esquema de la BD

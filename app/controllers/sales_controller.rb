@@ -6,16 +6,17 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     # clear no saved sales:
-    unsaved_sales = Sale.where(state: "draft", user: current_user)
-    unsaved_sales.each do |sale|
- #     sale.destroy
-    end
+    #unsaved_sales = Sale.where(state: "draft", user: current_user)
+    #unsaved_sales.each do |sale|
+     # sale.destroy
 
-    @page = (params[:page] || 0).to_i
-    @keywords = params[:keywords]
+  #end
 
-    search = Search.new(@page, PAGE_SIZE, @keywords)
-    @sales, @number_of_pages = search.sales
+   # @page = (params[:page] || 0).to_i
+    #@keywords = params[:keywords]
+
+    #search = Search.new(@page, PAGE_SIZE, @keywords)
+    #@sales, @number_of_pages = search.sales
   end
 
   # GET /sales/1
