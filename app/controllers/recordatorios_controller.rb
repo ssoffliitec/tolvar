@@ -1,10 +1,14 @@
 class RecordatoriosController < ApplicationController
   before_action :set_recordatorio, only: [:show, :edit, :update, :destroy]
-
+  PAGE_SIZE=10
   # GET /recordatorios
   # GET /recordatorios.json
   def index
-    @recordatorios = Recordatorio.all
+   @page = (params[:page] || 0).to_i
+    @keywords = params[:keywords]
+
+    search = Search.new(@page, PAGE_SIZE, @keywords)
+    @recordatorios, @number_of_pages = search.recordatorios_by_name
   end
 
   # GET /recordatorios/1

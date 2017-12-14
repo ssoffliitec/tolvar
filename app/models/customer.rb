@@ -1,18 +1,17 @@
 # == Schema Information
 #
-# Table name: recordatorios
+# Table name: customers
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  texto      :string
+#  address    :string
+#  dni        :string
+#  phone      :string
+#  mobile     :string
+#  mail       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
-
-class RecordatorioTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Customer < ApplicationRecord
 end
