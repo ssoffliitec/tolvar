@@ -16,6 +16,7 @@
 #
 
 class Item < ApplicationRecord
+ mount_uploader :picture, PictureUploader
  belongs_to :marca
  belongs_to :unit
  belongs_to :category
