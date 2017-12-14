@@ -23,6 +23,9 @@ gem 'annotate'
 #BOOTSTRAP HANDLER
 gem 'bower-rails'
 
+#imagenes
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

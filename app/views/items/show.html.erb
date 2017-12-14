@@ -1,44 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="col-sm-6">
+      <p>
+          <strong>Código:</strong>
+          <%= @item.code %>
+        </p>
+        
+        <p>
+          <strong>Descripción:</strong>
+          <%= @item.description %>
+        </p>
+        
+        <p>
+          <strong>Marca:</strong>
+          <%= @item.marca ? @item.marca.name : '' %>
+        </p>
+        
+        <p>
+          <strong>Unidad:</strong>
+          <%= @item.unit ? @item.unit.name : '' %>
+        </p>
+        
+        <p>
+          <strong>Categoría:</strong>
+          <%= @item.category ? @item.category.name : '' %>
+        </p>
+        
+        <p>
+          <strong>Stock Total:</strong>
+          <%= @item.stock %>
+        </p>
 
-<p>
-  <strong>Code:</strong>
-  <%= @item.code %>
-</p>
+        <p>
+            <strong>Stock Venta:</strong>
+            <%= @item.sale_stock %>
+          </p>
+        
+        <p>
+          <strong>Stock Mínimo:</strong>
+          <%= @item.min_stock %>
+        </p>
+        
+        <p>
+          <strong>Precio:</strong>
+          <%= number_to_currency(@item.price) %>
+        </p>
+  </div>
+  <div class="col-sm-6">
+      <p>
+          <%= image_tag  @item.picture.medium.url , class:'figure-img img-fluid rounded'%>
+      </p>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+<%= link_to 'Volver', items_path , class: "btn btn-default"%>
+<%= link_to 'Editar', edit_item_path(@item), class: "btn btn-info" %>  
 
-<p>
-  <strong>Marca:</strong>
-  <%= @item.marca %>
-</p>
-
-<p>
-  <strong>Unit:</strong>
-  <%= @item.unit %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @item.category %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @item.stock %>
-</p>
-
-<p>
-  <strong>Min stock:</strong>
-  <%= @item.min_stock %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
