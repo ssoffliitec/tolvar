@@ -81,6 +81,6 @@ class ItemsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
    params.require(:item).permit(:code, :description, :marca_id, :unit_id, :stock, :sale_stock,
-   :min_stock, :category_id, :price)
+   :min_stock, :category_id, :price, :picture)
   end
 end

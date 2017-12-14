@@ -5,6 +5,7 @@
     </tr>
     <tr>
       <th>Código</th>
+      <th>Imágen</th>
       <th>Descripción - Marca</th>
       <th>Unidad</th>
       <th>Stock</th>
@@ -20,6 +21,9 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.code %></td>
+        <td>
+          <%= image_tag  item.picture.thumb.url , class:'figure-img img-fluid rounded'%>
+        </td>          
         <td><%= item.item_description %></td>
         <td><%= item.unit ? item.unit.name : '' %></td>
         <td><%= item.stock %></td>
@@ -28,7 +32,7 @@
         <td><%= item.category ? item.category.name : '' %></td>
         <td><%= number_to_currency(item.price) %></td>
         <td>
-          <%= button_to edit_item_path(item), {method: :get, class: "btn"} do %>
+          <%= button_to item_path(item), {method: :get, class: "btn"} do %>
             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"> </span>
           <% end %>
         </td>
