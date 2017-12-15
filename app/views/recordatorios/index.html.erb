@@ -1,29 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Recordatorios</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Texto</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recordatorios.each do |recordatorio| %>
-      <tr>
-        <td><%= recordatorio.name %></td>
-        <td><%= recordatorio.texto %></td>
-        <td><%= link_to 'Show', recordatorio %></td>
-        <td><%= link_to 'Edit', edit_recordatorio_path(recordatorio) %></td>
-        <td><%= link_to 'Destroy', recordatorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="panel panel-default">
+ <div class="panel-heading">Recordatorios</div>
+ <div class="panel-body">
+  <%= render partial: 'layouts/search_form', locals: { search_entity: 'recordatorios', word: "Recordatorio" } %>
+  <br>
+  <div class="col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5">
+   <p>
+    <%= button_to new_recordatorio_path, {method: :get, class: "btn btn-success"} do %>
+     <span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nuevo Recordatorio
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Recordatorio', new_recordatorio_path %>
+   </p>
+  </div>
+ </div>
+ <%= render partial: 'result_search' %>
+</div>

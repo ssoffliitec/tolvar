@@ -23,7 +23,7 @@ gem 'annotate'
 #BOOTSTRAP HANDLER
 gem 'bower-rails'
 
-#subida de imagenes
+#imagenes
 gem 'carrierwave'
 gem 'mini_magick'
 

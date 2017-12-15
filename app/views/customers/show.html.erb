@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @customer.address %>
+</p>
+
+<p>
+  <strong>Dni:</strong>
+  <%= @customer.dni %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @customer.phone %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @customer.mobile %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @customer.mail %>
+</p>
+
+<%= link_to 'Volver', customers_path, class:"btn btn-default"%>
+<%= link_to 'Editar', edit_customer_path(@customer), class:" btn btn-info" %>
+

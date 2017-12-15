@@ -4,7 +4,7 @@ class MarcasController < ApplicationController
   # GET /marcas
   # GET /marcas.json
  PAGE_SIZE = 5 # resultados por pagina
-
+ 
   def index
     @page = (params[:page] || 0).to_i
     @keywords = params[:keywords]

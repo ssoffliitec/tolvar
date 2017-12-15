@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121212650) do
+ActiveRecord::Schema.define(version: 20171214231156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 20171121212650) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "dni"
+    t.string "phone"
+    t.string "mobile"
+    t.string "mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +44,8 @@ ActiveRecord::Schema.define(version: 20171121212650) do
     t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sale_stock"
+    t.string "picture"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["marca_id"], name: "index_items_on_marca_id"
     t.index ["unit_id"], name: "index_items_on_unit_id"
@@ -42,6 +55,7 @@ ActiveRecord::Schema.define(version: 20171121212650) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "imported"
   end
 
   create_table "recordatorios", force: :cascade do |t|
