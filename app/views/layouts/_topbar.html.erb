@@ -12,7 +12,7 @@
    <div id="navbar" class="navbar-collapse collapse">
      <ul class="nav navbar-nav navbar-right">
        <li><a href="<%= root_path %>", class="glyphicon glyphicon-home"></a></li>
-       <li><a href="<%= 'sales#index' %>", class="glyphicon glyphicon-user"></a></li>
+       <li><a href="<%= root_path %>", class="glyphicon glyphicon-user"></a></li>
        <% if user_signed_in? %>
          <li> 
            <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
