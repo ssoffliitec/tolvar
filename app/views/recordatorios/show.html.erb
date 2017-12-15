@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<h2>Recordatorio selecionado:</h2><br>
 <p>
-  <strong>Name:</strong>
+  <strong>Asunto:</strong>
   <%= @recordatorio.name %>
 </p>
 
@@ -9,6 +9,6 @@
   <strong>Texto:</strong>
   <%= @recordatorio.texto %>
 </p>
-
-<%= link_to 'Edit', edit_recordatorio_path(@recordatorio) %> |
-<%= link_to 'Back', recordatorios_path %>
+<br>
+<%= link_to 'Volver', recordatorios_path, class:"btn btn-default"%>
+<%= link_to 'Editar', edit_recordatorio_path(@recordatorio), class:" btn btn-info" %>
