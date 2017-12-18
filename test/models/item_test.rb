@@ -13,6 +13,8 @@
 #  price       :decimal(8, 2)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  sale_stock  :integer
+#  picture     :string
 #
 
 require 'test_helper'

@@ -11,7 +11,8 @@
 class Category < ApplicationRecord
 	include ActiveModel::Validations
 	
-	validates :name, presence: true
+	has_many :items
+	validates :name, presence: true, :length => { :minimum => 3 }, uniqueness: true
 
 	validates_with ValidateUnaccent, model: self
 end

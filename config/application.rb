@@ -14,6 +14,7 @@ module Shop
 	config.autoload_paths += %W(#{Rails.root}/lib/validators)
 	config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
 	config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components', 'bootstrap-sass-official')
-	config.assets.precompile += %W( *.eot *.svg *.ttf *.woff *.woff2 *.otf )
+  config.assets.precompile += %W( *.eot *.svg *.ttf *.woff *.woff2 *.otf )
+  config.i18n.default_locale = :es
   end
 end

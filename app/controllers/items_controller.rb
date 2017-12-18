@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
  # GET /items/new
  def new
   @item = Item.new
+  @units = Unit.all
  end
 
  # GET /items/1/edit
@@ -80,7 +81,6 @@ class ItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
-   params.require(:item).permit(:code, :description, :marca_id, :unit_id, :stock, :sale_stock,
-   :min_stock, :category_id, :price, :picture)
+   params.require(:item).permit(:code, :description, :marca_id, :unit_id, :stock, :sale_stock,:min_stock, :category_id, :price, :picture)
   end
 end
