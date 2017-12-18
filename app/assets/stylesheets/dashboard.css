@@ -304,6 +304,12 @@ span.twitter-typeahead {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
+  background-color: #c9302c !important;
+  color: #fff;
+  display: block !important;
+}
+
+.message {
+  padding: 5px;
+  margin-bottom: 0;
 }

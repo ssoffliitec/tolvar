@@ -3,14 +3,12 @@
     <div class="panel-body">
       <%= form_for(town , validate: true) do |f| %>
         <% if town.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(town.errors.count, "error") %> prohibited this town from being saved:</h2>
-
-            <ul>
+          <div class="alert alert-danger text-center">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong><%= pluralize(town.errors.count, "error: ") %></strong>
             <% town.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+              <%= message %>
             <% end %>
-            </ul>
           </div>
         <% end %>
 

@@ -3,15 +3,13 @@
   <div class="panel-body">
    <%= form_for(marca , validate: true) do |f| %>
     <% if marca.errors.any? %>
-     <div id="error_explanation">
-      <h2><%= pluralize(marca.errors.count, "error") %> prohibited this brand from being saved:</h2>
-
-      <ul>
-       <% marca.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-       <% end %>
-      </ul>
-     </div>
+        <div class="alert alert-danger text-center">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong><%= pluralize(marca.errors.count, "error: ") %></strong>
+            <% marca.errors.full_messages.each do |message| %>
+                <%= message %>
+            <% end %>
+        </div>
     <% end %>
 
     <div class="form-group">

@@ -1,16 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="panel-body">
-      <%= form_with(model: item, local: true, validate: true) do |form| %>
+      <%= form_for(item, validate: true) do |form| %>
         <% if item.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-            <ul>
+          <div class="alert alert-danger text-center">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong><%= pluralize(item.errors.count, "error: ") %></strong>
             <% item.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+              <%= message %>
             <% end %>
-            </ul>
           </div>
         <% end %>
         
@@ -64,7 +62,7 @@
         <br>
 
         <div class="actions col-md-5 col-md-offset-5 col-sm-5 col-sm-offset-5">
-          <%= form.submit class: "btn btn-success", value: "Cargar Articulo" %>
+          <%= form.submit "Guardar Atículo", class: "btn btn-success"%>
         </div>  
       </div>
       <% end %>
