@@ -14,6 +14,7 @@
 
 //= require jquery-readyselector
 //= require turbolinks
+//= require rails.validations
 //= require 'bootstrap-sass-official'
 
 

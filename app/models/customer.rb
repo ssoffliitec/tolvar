@@ -16,10 +16,10 @@
 class Customer < ApplicationRecord
     include ActiveModel::Validations
 
-    validates :name, presence: true, :length => { :minimum => 3, too_short: ": Debe tener al menos %{count} caracteres" }
-    validates :dni, :length => { :maximum => 9, too_long: "%{count} characters is the maximum allowed" }
-    validates :address, :length => { :maximum => 100 }
-    validates :mobile, :length => { :maximum => 10 }
-    validates :phone, :length => { :maximum => 10 }
-    validates :mail, :length => { :maximum => 100 }
+    validates :name, presence: true, :length => { :minimum => 3}
+    validates :dni, :length => { :maximum => 9, too_long: "%{count} Caracteres como máximo" }, :uniqueness => { :case_sensitive => false}
+    validates :address, :length => { :maximum => 100 , too_long: "%{count} Caracteres como máximo" }
+    validates :mobile, :length => { :maximum => 10 , too_long: "%{count} Caracteres como máximo" }
+    validates :phone, :length => { :maximum => 10 , too_long: "%{count} Caracteres como máximo" }
+    validates :mail, :length => { :maximum => 100 , too_long: "%{count} Caracteres como máximo" }
 end

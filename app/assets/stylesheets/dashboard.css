@@ -302,3 +302,8 @@ span.twitter-typeahead {
 .table > tbody > tr > .thick-line {
     border-top: 2px solid;
 }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+}

@@ -1,7 +1,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="panel-body">
-   <%= form_for(recordatorio) do |f| %>
+   <%= form_for(recordatorio , validate: true) do |f| %>
     <% if recordatorio.errors.any? %>
      <div id="error_explanation">
       <h2><%= pluralize(recordatorio.errors.count, "error") %> prohibited this brand from being saved:</h2>

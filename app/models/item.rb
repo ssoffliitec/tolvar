@@ -21,7 +21,12 @@ class Item < ApplicationRecord
  belongs_to :unit
  belongs_to :category
 
- validates :description, presence: true
+ validates {:description, :marca, :unit}, presence: true
+ validates :category, presence: true
+ validates :stock, presence: true
+ validates :min_stock, presence: true
+ validates :price, presence: true
+ validates :code, uniqueness: {case_sensitive: false}
 
  def item_description
   self.description + ( (self.marca != nil) ? ' - ' + self.marca.name : '' )

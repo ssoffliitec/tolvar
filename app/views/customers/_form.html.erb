@@ -1,39 +1,45 @@
 <div class="container-fluid">
  <div class="row">
   <div class="panel-body">
-   <%= form_for(customer) do |f| %>
+   <%= form_for(customer, validate: true) do |f| %>
     <% if customer.errors.any? %>
      <div id="error_explanation">
       <h2><%= pluralize(customer.errors.count, "error") %> prohibited this brand from being saved:</h2>
-
       <ul>
        <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+       <div class="alert alert-danger">
+         <%= message %></div>
        <% end %>
       </ul>
      </div>
     <% end %>
 
     <div class="form-group">
-     <%= f.text_field :name, autofocus: true, placeholder: "Nombre", class: "form-control" %>
+      <%= f.label :name, :class => 'control-label' %>
+      <%= f.text_field :name , autofocus: true, placeholder: "Nombre", class: "form-control" %>
     </div>
     <div class="form-group">
+        <%= f.label :dni, :class => 'control-label', :value => 'DNI' %>
      <%= f.text_field :dni, autofocus: true, placeholder: "DNI", class: "form-control" %>
     </div>
     <div class="form-group">
+        <%= f.label :address, :class => 'control-label', :value => 'Domicilio' %>
       <%= f.text_field :address, autofocus: true, placeholder: "Direccion", class: "form-control" %>
     </div>
     <div class="form-group">
+        <%= f.label :phone, :class => 'control-label', :value => 'Teléfono Fijo' %>
      <%= f.text_field :phone, autofocus: true, placeholder: "Tel Fijo", class: "form-control" %>
     </div>
     <div class="form-group">
+        <%= f.label :mobile, :class => 'control-label', :value => 'Celular' %>
      <%= f.text_field :mobile, autofocus: true, placeholder: "Celular", class: "form-control" %>
     </div>
     <div class="form-group">
+        <%= f.label :mail, :class => 'control-label', :value => 'E-mail' %>
      <%= f.text_field :mail, autofocus: true, placeholder: "e-mail", class: "form-control" %>
     </div>
 
-    <%= f.submit "Aceptar", class: "btn btn-success" %>
+    <%= f.submit "Guardar", class: "btn btn-success" %>
    <% end %>
   </div>
  </div>
