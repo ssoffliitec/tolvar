@@ -64,15 +64,6 @@ ActiveRecord::Schema.define(version: 20171218215150) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sales", force: :cascade do |t|
-    t.integer "number"
-    t.date "date"
-    t.integer "state"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "towns", force: :cascade do |t|
     t.string "name"
     t.integer "code"

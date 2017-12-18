@@ -1,5 +1,7 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
+  <h2>Artículo seleccionado:</h2>
+  <br>
   <div class="col-sm-6">
       <p>
           <strong>Código:</strong>
@@ -17,7 +19,7 @@
         </p>
         
         <p>
-          <strong>Unidad:</strong>
+          <strong>Unidad de Medida:</strong>
           <%= @item.unit ? @item.unit.name : '' %>
         </p>
         
@@ -52,7 +54,7 @@
       </p>
   </div>
 </div>
-
+<br>
 <%= link_to 'Volver', items_path , class: "btn btn-default"%>
 <%= link_to 'Editar', edit_item_path(@item), class: "btn btn-info" %>  
 

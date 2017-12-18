@@ -18,8 +18,9 @@
 #
 
 class Item < ApplicationRecord
- include ActiveModel::Validations
 
+ include ActiveModel::Validations
+  
  mount_uploader :picture, PictureUploader
  belongs_to :marca
  belongs_to :unit
