@@ -11,7 +11,8 @@
 class Unit < ApplicationRecord
 	include ActiveModel::Validations
 
-	validates :name, presence: true
-
+	validates :name, presence: true, :length => { :minimum => 3}, uniqueness: true
+	has_many :items
+	
 	validates_with ValidateUnaccent, model: self
 end

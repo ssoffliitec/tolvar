@@ -16,8 +16,8 @@
 class Customer < ApplicationRecord
     include ActiveModel::Validations
 
-    validates :name, presence: true, :length => { :minimum => 3, too_short: ": Debe tener al menos %{count} caracteres" }
-    validates :dni, :length => { :maximum => 9, too_long: "%{count} characters is the maximum allowed" }
+    validates :name, presence: true, :length => { :minimum => 3}
+    validates :dni, :length => { :maximum => 9}, uniqueness: true
     validates :address, :length => { :maximum => 100 }
     validates :mobile, :length => { :maximum => 10 }
     validates :phone, :length => { :maximum => 10 }

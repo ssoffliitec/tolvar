@@ -23,6 +23,9 @@ gem 'annotate'
 #BOOTSTRAP HANDLER
 gem 'bower-rails'
 
+#validaciones client-side
+gem 'client_side_validations'
+
 #imagenes
 gem 'carrierwave'
 gem 'mini_magick'

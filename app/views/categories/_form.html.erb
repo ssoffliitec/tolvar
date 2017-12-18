@@ -1,16 +1,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="panel-body">
-      <%= form_for(category) do |f| %>
+      <%= form_for(category , validate: true) do |f| %>
         <% if category.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-            <ul>
+          <div class="alert alert-danger text-center">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong><%= pluralize(category.errors.count, "error: ") %></strong>
             <% category.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+              <%= message %>
             <% end %>
-            </ul>
           </div>
         <% end %>
 
