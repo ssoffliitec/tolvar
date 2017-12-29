@@ -1,8 +1,7 @@
-
 /*
  * Base structure
  */
-html {
+ html {
   height: 100%;
 }
 /* Move down content because we have a fixed navbar that is 50px tall */
@@ -302,7 +301,6 @@ span.twitter-typeahead {
 .table > tbody > tr > .thick-line {
     border-top: 2px solid;
 }
-
 .field_with_errors {
   background-color: #c9302c !important;
   color: #fff;

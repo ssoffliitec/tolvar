@@ -18,7 +18,7 @@
    </li> 
  
    <li >
-    <a href="<%= root_path %>">
+    <a href="<%= sales_path %>">
      Ventas
      <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-shopping-cart"></span>
     </a>
@@ -45,22 +45,30 @@
        <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span>
       </a>
     </li>
-
-   <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-     Configuración
-     <span class="caret"></span>
-     <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-wrench"></span>
-    </a>
-    <ul class="dropdown-menu forAnimate" role="menu">
-     <li class="<%= current_page?(categories_path) ? "active" : "" %>"><%= link_to 'Categorías', categories_path %></li>
-     <li class="<%= current_page?(marcas_path) ? "active" : "" %>"><%= link_to 'Marcas', marcas_path %></li>
-     <li class="<%= current_page?(units_path) ? "active" : "" %>"><%= link_to 'Unidades', units_path %></li>
-     <li class="<%= current_page?(towns_path) ? "active" : "" %>"><%= link_to 'Localidades', towns_path %></li>
-     <li class="divider"></li>
-     <li><a href="#">Respaldo</a></li>
-    </ul>
-   </li>
+    <li >
+      <a href="<%= categories_path%>" > 
+      Categorías 
+       <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-bookmark"></span>
+      </a>
+    </li>
+    <li >
+      <a href="<%= marcas_path%>" > 
+      Marcas 
+       <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span>
+      </a>
+    </li>
+    <li >
+      <a href="<%= units_path%>" > 
+      Unidades 
+       <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span>
+      </a>
+    </li>
+    <li >
+      <a href="<%= towns_path%>" > 
+      Ciudades 
+       <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-map-marker"></span>
+      </a>
+    </li>
   </ul>
  </div>
  </div>

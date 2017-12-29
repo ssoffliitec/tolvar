@@ -3,7 +3,7 @@ class ItemsSuggestionController < ApplicationController
 		if params[:query].present?
 			query = params[:query]
 			condition1 = "unaccent(lower(items.description)) LIKE '%#{I18n.transliterate(query.downcase)}%'"
-			condition2 = condition1 + " OR unaccent(lower(brands.name)) LIKE '%#{I18n.transliterate(query.downcase)}%'"
+			condition2 = condition1 + " OR unaccent(lower(marcas.name)) LIKE '%#{I18n.transliterate(query.downcase)}%'"
 			@items = Item.joins(:marca).where(condition2)
 			@items.each do |item|
 				item.description = item.item_description

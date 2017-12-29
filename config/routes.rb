@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  
   root to: 'dashboard#index'
   
   devise_for :users
@@ -13,6 +12,9 @@ Rails.application.routes.draw do
   resources :recordatorios
   resources :customers
 
+  resources :sales do
+    resources :sale_details
+  end
   #get 'validate_suggested_marca/index'
   get '/marcas_suggestion', to: 'marcas_suggestion#index'
   get '/validate_suggested_marca', to: 'validate_suggested_marca#index'

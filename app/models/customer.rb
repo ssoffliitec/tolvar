@@ -16,6 +16,8 @@
 class Customer < ApplicationRecord
     include ActiveModel::Validations
 
+    has_many :sales
+    
     validates :name, presence: true, :length => { :minimum => 3}
     validates :dni, :length => { :maximum => 9}, uniqueness: true
     validates :address, :length => { :maximum => 100 }
