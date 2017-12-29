@@ -11,12 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 
 //= require jquery-readyselector
 //= require turbolinks
 //= require rails.validations
-//= require 'bootstrap-sass-official'
+//= require rails.validations.simple_form
 
+//= require 'bootstrap-sass-official'
 
 //= require 'typeahead.js.js'
 //= require items

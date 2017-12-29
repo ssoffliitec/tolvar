@@ -35,10 +35,6 @@ class Item < ApplicationRecord
  validates :min_stock, presence: true, numericality: { only_integer: true }
  validates :price, numericality: true
  validates :code, uniqueness: true
- 
- def item_description
-  self.description + ( (self.marca != nil) ? ' - ' + self.marca.name : '' )
- end
 
  def marca_name
   if self.marca

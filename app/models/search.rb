@@ -92,11 +92,26 @@ class Search
     return customers, number_of_pages
   end
 
+  def sales
+		if @keywords.present?
+		    sales = Sale.where(sale_condition).order(number: :desc).offset(@offset).limit(@page_size)
+		    @number_of_records = Item.where(description_condition).count
+	    else
+		    sales = Sale.where(state: "confirmed").order(number: :desc).offset(@offset).limit(@page_size)
+			@number_of_records = Sale.where(state: "confirmed").count
+	    end
+
+		return sales, number_of_pages
+  end
 
  private
 
   def name_condition
-  name_condition = "unaccent(lower(name)) LIKE '%#{I18n.transliterate(@keywords.downcase)}%'"
+    name_condition = "unaccent(lower(name)) LIKE '%#{I18n.transliterate(@keywords.downcase)}%'"
+  end
+
+  def sale_condition
+		number_condition = "number = #{@keywords.to_i} and state = 1"
   end
 
   def description_condition

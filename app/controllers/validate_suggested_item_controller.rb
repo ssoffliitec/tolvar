@@ -4,7 +4,7 @@ class ValidateSuggestedItemController < ApplicationController
 		if params[:item_description].present?
 			item_description = params[:item_description]
 			condition = "unaccent(lower(description || ' ' || name)) = '#{I18n.transliterate(item_description.downcase)}'"
-			item = Item.joins(:brand).where(condition)
+			item = Item.joins(:marca).where(condition)
 		end
 		if !item.empty?
 			result = [valid: true, id: item.first.id, price: item.first.price]

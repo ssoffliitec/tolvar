@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
  # GET /items/new
  def new
   @item = Item.new
-  @units = Unit.all
+  #@units = Unit.all.map{ |unit| [unit.id] }
  end
 
  # GET /items/1/edit
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
  # POST /items.json
  def create
   @item = Item.new(item_params)
-
+  @item.marca_id = params[:marca_id]
   respond_to do |format|
    if @item.save
     format.html { redirect_to items_url, notice: 'Artículo creado.' }
@@ -76,6 +76,7 @@ class ItemsController < ApplicationController
 
   def set_combo_values
    @units = Unit.all.order(:name)
+   puts(@units)
    @categories = Category.all.order(:name)
   end
 
