@@ -12,14 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require jquery-readyselector
 //= require turbolinks
-//= require rails.validations
-//= require rails.validations.simple_form
-
 //= require 'bootstrap-sass-official'
-
+//= require cocoon
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
+//= require rails.validations
 //= require 'typeahead.js.js'
-//= require items
 //= require_tree .

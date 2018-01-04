@@ -3,7 +3,7 @@ class ValidateSuggestedItemController < ApplicationController
   		item = []
 		if params[:item_description].present?
 			item_description = params[:item_description]
-			condition = "unaccent(lower(description || ' ' || name)) = '#{I18n.transliterate(item_description.downcase)}'"
+			condition = "unaccent(lower(description)) = '#{I18n.transliterate(item_description.downcase)}'"
 			item = Item.joins(:marca).where(condition)
 		end
 		if !item.empty?
