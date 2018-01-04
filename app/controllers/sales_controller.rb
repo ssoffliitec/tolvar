@@ -1,5 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:create, :show, :edit, :update, :destroy]
+  before_action :set_combo_values, only: [:new, :edit]
+
   PAGE_SIZE = 10
 
   # GET /sales
@@ -72,8 +74,12 @@ class SalesController < ApplicationController
       @sale = Sale.find(params[:id])
     end
 
+    def set_combo_values
+      @customers = Customer.all.order(:name)
+     end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:number, :date, sale_details_attributes: [:id, :sale_id, :item_id, :number, :qty, :price, :_destroy] )
+      params.require(:sale).permit(:number, :date, :customer_id, sale_details_attributes: [:id, :sale_id, :item_id, :number, :qty, :price, :_destroy] )
     end
 end

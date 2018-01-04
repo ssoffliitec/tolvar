@@ -76,7 +76,6 @@ class ItemsController < ApplicationController
 
   def set_combo_values
    @units = Unit.all.order(:name)
-   puts(@units)
    @categories = Category.all.order(:name)
   end
 

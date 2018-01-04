@@ -25,8 +25,6 @@ gem 'bower-rails'
 
 gem 'jquery-rails'
 
-gem 'simple_form'
-gem 'client_side_validations-simple_form'
 #validaciones client-side
 gem 'client_side_validations'
 
