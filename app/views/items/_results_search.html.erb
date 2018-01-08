@@ -27,7 +27,12 @@
         <td><%= item.description %></td>
         <td><%= item.unit ? item.unit.name : '' %></td>
         <td><%= item.stock %></td>
-        <td><%= item.sale_stock %></td>
+        <% if item.sale_stock == item.min_stock %>
+          <td class="danger"><%= item.sale_stock %></td>
+        <% else %>
+          <td><%= item.sale_stock %></td>
+        <% end %>
+        
         <td><%= item.min_stock %></td>
         <td><%= item.category ? item.category.name : '' %></td>
         <td><%= number_to_currency(item.price) %></td>

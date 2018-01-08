@@ -27,9 +27,9 @@ class Item < ApplicationRecord
  belongs_to :category
 
  validates :description, presence: true
- validates :marca, presence: true
- validates :unit, presence: true
- validates :category, presence: true
+ validates :marca_id, presence: true
+ validates :unit_id, presence: true
+ validates :category_id, presence: true
  validates :stock, presence: true, numericality: { only_integer: true }
  validates :sale_stock, presence: true, numericality: { only_integer: true }
  validates :min_stock, presence: true, numericality: { only_integer: true }
