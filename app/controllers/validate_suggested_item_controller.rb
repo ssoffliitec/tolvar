@@ -7,7 +7,7 @@ class ValidateSuggestedItemController < ApplicationController
 			item = Item.joins(:marca).where(condition)
 		end
 		if !item.empty?
-			result = [valid: true, id: item.first.id, price: item.first.price]
+			result = [valid: true, id: item.first.id, price: item.first.price, sale_stock: item.first.sale_stock]
 		else
 			result = [valid: false, id: 0]
 		end

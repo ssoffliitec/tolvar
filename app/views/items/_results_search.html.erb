@@ -27,7 +27,7 @@
         <td><%= item.description %></td>
         <td><%= item.unit ? item.unit.name : '' %></td>
         <td><%= item.stock %></td>
-        <% if item.sale_stock == item.min_stock %>
+        <% if (item.sale_stock == item.min_stock) || (item.sale_stock <= item.min_stock) %>
           <td class="danger"><%= item.sale_stock %></td>
         <% else %>
           <td><%= item.sale_stock %></td>

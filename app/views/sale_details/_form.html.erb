@@ -12,7 +12,8 @@
       <div class="col-xs-2">
         <div class="form-group">
             <%= f.label :qty, value: 'Cantidad'%>
-            <%= f.text_field :qty, placeholder: "Cant.", class: "form-control" %>
+            <%= f.number_field :qty, placeholder: "Cant.", class: "form-control" %>
+            <%= hidden_field_tag :sale_stock  %>
         </div>
       </div>
       <div class="col-xs-2">

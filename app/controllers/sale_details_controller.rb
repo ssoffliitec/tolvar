@@ -32,7 +32,7 @@ class SaleDetailsController < ApplicationController
 			@sale.sale_details << sale_detail
 		end
 		item_stock = Item.find(item_id)
-		if params[:sale_details][:qty].to_i < item_stock.sale_stock
+		if params[:sale_details][:qty].to_i <= item_stock.sale_stock
 			item_stock.sale_stock = item_stock.sale_stock - params[:sale_details][:qty].to_i
 			item_stock.save!
 			@sale.save!
