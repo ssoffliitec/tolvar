@@ -22,7 +22,7 @@ class Search
 
   def categories_by_name
    if @keywords.present?
-     category = Category.where(name_condition).order(:name).offset(@offset).limit(@page_size)
+     categories = Category.where(name_condition).order(:name).offset(@offset).limit(@page_size)
      @number_of_records = Category.where(name_condition).count
    else
      categories = Category.order(:name).offset(@offset).limit(@page_size)
@@ -80,12 +80,12 @@ class Search
     return recordatorios, number_of_pages
   end
 
-  def customers_by_name
+  def customers_by_dni
       if @keywords.present?
-     customers = Customer.where(name_condition).order(:name).offset(@offset).limit(@page_size)
-     @number_of_records = Customer.where(name_condition).count
+     customers = Customer.where(dni_condition).order(:dni).offset(@offset).limit(@page_size)
+     @number_of_records = Customer.where(dni_condition).count
     else
-     customers = Customer.order(:name).offset(@offset).limit(@page_size)
+     customers = Customer.order(:dni).offset(@offset).limit(@page_size)
      @number_of_records = Customer.count
     end
    
@@ -104,10 +104,26 @@ class Search
 		return sales, number_of_pages
   end
 
+  def budgets
+		if @keywords.present?
+		    budgets = Budget.where(sale_condition).order(number: :desc).offset(@offset).limit(@page_size)
+		    @number_of_records = Item.where(description_condition).count
+	    else
+		    budgets = Budget.where(state: "confirmed").order(number: :desc).offset(@offset).limit(@page_size)
+			  @number_of_records = Budget.where(state: "confirmed").count
+	    end
+
+		return budgets, number_of_pages
+  end
+
  private
 
   def name_condition
     name_condition = "unaccent(lower(name)) LIKE '%#{I18n.transliterate(@keywords.downcase)}%'"
+  end
+
+  def dni_condition
+    dni00_condition = "unaccent(lower(dni)) LIKE '%#{I18n.transliterate(@keywords.downcase)}%'"
   end
 
   def sale_condition

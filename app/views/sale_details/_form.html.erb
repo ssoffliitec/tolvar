@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-5">
         <div class="form-group">
-            <%= f.label :item_id, class: "sr-only" %>
+            <%= f.label :item_id, value: "Artículo" %>
             <%= f.text_field :item, placeholder: "Artículo", class: "form-control", value: nil %>
             <%= f.hidden_field :item_id %>
             <%= hidden_field_tag :item_description  %>
@@ -11,19 +11,20 @@
       </div>
       <div class="col-xs-2">
         <div class="form-group">
-            <%= f.label :qty, class: "sr-only"%>
-            <%= f.text_field :qty, placeholder: "Cant.", class: "form-control" %>
+            <%= f.label :qty, value: 'Cantidad'%>
+            <%= f.number_field :qty, placeholder: "Cant.", class: "form-control" %>
+            <%= hidden_field_tag :sale_stock  %>
         </div>
       </div>
       <div class="col-xs-2">
         <div class="form-group">
-            <%= f.label :price, class: "sr-only" %>
+            <%= f.label :price, value: "Precio" %>
             <%= f.text_field :price, placeholder: "Precio" , class: "form-control" %>
         </div>
       </div>
       <div class="col-xs-2">
         <div class="form-group">
-            <%= f.label :subtotal, class: "sr-only" %>
+            <%= f.label :subtotal, value: "Subtotal" %>
             <%= f.text_field :subtotal, placeholder: "0", class: "form-control", disabled: true %>
         </div>
       </div>

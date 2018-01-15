@@ -23,14 +23,19 @@
         <td><%= item.code %></td>
         <td>
           <%= image_tag  item.picture.thumb.url , class:'figure-img img-fluid rounded'%>
-        </td>          
+        </td>
         <td><%= item.description %></td>
         <td><%= item.unit ? item.unit.name : '' %></td>
         <td><%= item.stock %></td>
-        <td><%= item.sale_stock %></td>
+        <% if (item.sale_stock == item.min_stock) || (item.sale_stock <= item.min_stock) %>
+          <td class="danger"><%= item.sale_stock %></td>
+        <% else %>
+          <td><%= item.sale_stock %></td>
+        <% end %>
+        
         <td><%= item.min_stock %></td>
         <td><%= item.category ? item.category.name : '' %></td>
-        <td><%= number_to_currency(item.price) %></td>
+        <td><%= number_to_currency(item.price, unit: "$") %></td>
         <td>
           <%= button_to item_path(item), {method: :get, class: "btn"} do %>
             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"> </span>

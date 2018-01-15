@@ -1,0 +1,5 @@
+
+$("ul.errors").html("");
+
+$("#budget-details").html("<%= escape_javascript(render(partial: 'budgets/table', locals: { budget: @budget, show_actions: true })) %>");
+$("#new-detail-modal").modal("hide");

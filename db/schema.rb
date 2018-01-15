@@ -10,11 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229194140) do
+ActiveRecord::Schema.define(version: 20180114213939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
+
+  create_table "budget_details", force: :cascade do |t|
+    t.integer "budget_id"
+    t.integer "number"
+    t.integer "item_id"
+    t.integer "qty"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "budgets", force: :cascade do |t|
+    t.integer "number"
+    t.date "date"
+    t.integer "state"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"

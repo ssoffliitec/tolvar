@@ -3,7 +3,7 @@ es:
     attributes:
       customer:
         name: "Nombre"
-        dni: "DNI"
+        dni: "DNI/CUIT"
         address: "Dirección"
         phone: "Teléfono Fijo"
         mobile: "Celular"
@@ -17,6 +17,17 @@ es:
         name: "Nombre de Unidad de Medida"
       marca:
         name: "Nombre de Marca"
+      item:
+        description: "Descripción"
+        code: "Código"
+        marca_id: "Marca"
+        unit_id: "Unidad de Medida"
+        category_id: "Categoría"
+        stock: "Stock"
+        sale_stock: "Stock de Venta"
+        min_stock: "Stock Mínimo"
+        price: "Precio"
+        picture: "Imágen"
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"

@@ -1,0 +1,58 @@
+<div class="container-fluid" id="budget-form">
+  <div class="row">
+
+    <div class="panel-body">
+      <%= form_for(@budget) do |f| %>
+        <% if @budget.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+
+            <ul>
+            <% @budget.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group form-inline">
+                <%= f.label :number, "Número de Venta" %>
+                <%= f.text_field :number, placeholder: "Número", class: "form-control" , disabled: true %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group form-inline">
+              <%= f.label :customer_id, "Cliente" %>
+              <%= f.collection_select :customer_id, @customers, :id, :dni, 
+                {selected: @budget.customer_id, include_blank: 'Seleccione Cliente'},
+                {class: "form-control"} %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group form-inline">
+                <%= f.label :date, "Fecha" %>
+                <%= f.date_field :date, placeholder: "Fecha", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <br>
+        <div class="panel-body" id="budget-details">
+          <%= (@budget.budget_details.count > 0) ? render(partial: 'table', locals: { budget: @budget, show_actions: true }) : 'No hay detalles cargados' %>
+        </div>
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-5 text-center">
+            <%= link_to "Agregar Artículo", new_budget_budget_detail_path(budget_id: @budget.id), :remote => true , class: "btn btn-info"%>
+          </div>
+        </div>
+        <br>
+        <%= link_to 'Volver', budgets_path, data: { confirm: "Se perderán los cambios ¿Está seguro?" }, class: "btn btn-default" %>
+        <% message = (action_name == 'edit') ? "Guardar" : "Guardar" %>
+        <%= f.submit message, class: "btn btn-success" %>
+      <% end %>
+      <div class="modal fade" id="new-detail-modal" title="Modal"></div>
+    </div>
+  </div>
+</div>

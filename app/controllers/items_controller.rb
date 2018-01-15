@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_combo_values, only: [:new, :edit]
+  before_action :set_combo_values, only: [:new, :edit, :create, :update]
  PAGE_SIZE = 10
 
  # GET /items
@@ -63,7 +63,7 @@ class ItemsController < ApplicationController
  def destroy
   @item.destroy
   respond_to do |format|
-   format.html { redirect_to items_url, notice: 'Artículo Eliminado.' }
+   format.html { redirect_to items_url, alert: 'Artículo Eliminado.' }
    format.json { head :no_content }
   end
  end

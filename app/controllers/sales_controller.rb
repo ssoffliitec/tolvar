@@ -1,6 +1,6 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:create, :show, :edit, :update, :destroy]
-  before_action :set_combo_values, only: [:new, :edit]
+  before_action :set_combo_values, only: [:new, :edit, :create, :update]
 
   PAGE_SIZE = 10
 
@@ -47,9 +47,11 @@ class SalesController < ApplicationController
   # PATCH/PUT /sales/1.json
   def update
     @sale.confirmed!
+
+    puts params[:item_stock]
     respond_to do |format|
       if @sale.update(sale_params)
-        format.html { redirect_to sales_url, notice: 'Venta actualizada.' }
+        format.html { redirect_to sales_url, notice: 'Venta Guardada Correctamente.' }
         format.json { render :show, status: :ok, location: @sale }
       else
         format.html { render :edit }
@@ -63,7 +65,7 @@ class SalesController < ApplicationController
   def destroy
     @sale.destroy
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: 'Venta eliminada.' }
+      format.html { redirect_to sales_url, alert: 'Venta eliminada.' }
       format.json { head :no_content }
     end
   end
@@ -75,8 +77,8 @@ class SalesController < ApplicationController
     end
 
     def set_combo_values
-      @customers = Customer.all.order(:name)
-     end
+      @customers = Customer.all.order(:dni)
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params

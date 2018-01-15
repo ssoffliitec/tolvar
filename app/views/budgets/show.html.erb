@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row" id="container-show">
+      <div class="col-xs-12">
+      <div class="invoice-title">
+        <h2>Presupuesto</h2>
+        <h3 class="pull-right">Número # <%= @budget.number %></h3>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-6 text-left">
+            <address>
+              <strong>Cliente:</strong><br>
+              <%= @budget.customer ? @budget.customer.name : '' %>
+            </address>
+            <address>
+                <strong>Documento:</strong><br>
+                <%= @budget.customer ? @budget.customer.dni : '' %>
+              </address>
+          </div>
+        
+        <div class="col-xs-6 text-right">
+          <address>
+            <strong>Fecha:</strong><br>
+            <%= @budget.date.strftime("%d/%m/%Y") %><br><br>
+          </address>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>Detalles de Presupuesto</strong></h3>
+            </div>
+            <div class="panel-body">
+              <%= render partial: 'table', locals: { budget: @budget } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Volver', budgets_path ,class: "btn btn-default" %>
+  <input type="button" onclick="printDiv('container-show')" value="Imprimir Presupuesto" class="btn btn-success pull-right"/>
+</div>
+
+
+<script>
+    function printDiv(nombreDiv) {
+      var contenido= document.getElementById(nombreDiv).innerHTML;
+      var contenidoOriginal= document.body.innerHTML;
+      document.body.innerHTML = contenido;
+      window.print();
+      document.body.innerHTML = contenidoOriginal;
+    }
+</script>

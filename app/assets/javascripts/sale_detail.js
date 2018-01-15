@@ -23,7 +23,7 @@ $(document).ready(function(){
     	  source: items_suggested,
           templates: {
             suggestion: function (item) {
-                return '<p>' + item.description + '</p>';
+                return '<p>' + item.code + '-' + item.description + '</p>';
             }
           }
     	});
@@ -52,13 +52,18 @@ $(document).ready(function(){
         			if (res["0"].valid == false){
         				// Item no válido
         				$('#sale_details_item').css('border-color', 'red');
-        			}else{
-        				// Item correcto
-                        $('#sale_details_item_id').val(res["0"].id.toString());
-                        $('#sale_details_price').val(res["0"].price.toString());
-        				$('#sale_details_item').css('border-color', '#ccc');
-                        subtotal();
-        			}
+        			}else if ($('#sale_stock').val(res["0"].sale_stock.toString()) == 0){
+							$('#sale_details_qty').css('border-color', 'red');
+					} else {
+						// Item correcto
+						$('#sale_details_item_id').val(res["0"].id.toString());
+						$('#sale_details_qty').prop(
+								"max",res["0"].sale_stock
+						);
+						$('#sale_details_price').val(res["0"].price.toString());
+						$('#sale_details_item').css('border-color', 'green');
+						subtotal();
+					}
         		}
         	});
         });
@@ -68,7 +73,7 @@ $(document).ready(function(){
         };
 
         $('#sale_details_qty').blur(function(){
-             subtotal();
+			subtotal();
         });
 
         $('#sale_details_price').blur(function(){

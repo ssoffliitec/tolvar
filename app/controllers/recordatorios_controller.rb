@@ -32,7 +32,7 @@ class RecordatoriosController < ApplicationController
 
     respond_to do |format|
       if @recordatorio.save
-        format.html { redirect_to @recordatorio, notice: 'Recordatorio was successfully created.' }
+        format.html { redirect_to recordatorios_path, notice: 'Recordatorio Creado.' }
         format.json { render :show, status: :created, location: @recordatorio }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class RecordatoriosController < ApplicationController
   def update
     respond_to do |format|
       if @recordatorio.update(recordatorio_params)
-        format.html { redirect_to @recordatorio, notice: 'Recordatorio was successfully updated.' }
+        format.html { redirect_to recordatorios_path, notice: 'Recordatorio Actualizado.' }
         format.json { render :show, status: :ok, location: @recordatorio }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class RecordatoriosController < ApplicationController
   def destroy
     @recordatorio.destroy
     respond_to do |format|
-      format.html { redirect_to recordatorios_url, notice: 'Recordatorio was successfully destroyed.' }
+      format.html { redirect_to recordatorios_url, alert: 'Recordatorio Eliminado.' }
       format.json { head :no_content }
     end
   end
