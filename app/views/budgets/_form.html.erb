@@ -1,14 +1,14 @@
-<div class="container-fluid" id="sale-form">
+<div class="container-fluid" id="budget-form">
   <div class="row">
 
     <div class="panel-body">
-      <%= form_for(@sale) do |f| %>
-        <% if @sale.errors.any? %>
+      <%= form_for(@budget) do |f| %>
+        <% if @budget.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+            <h2><%= pluralize(@budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
 
             <ul>
-            <% @sale.errors.full_messages.each do |message| %>
+            <% @budget.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
             </ul>
@@ -24,9 +24,9 @@
           </div>
           <div class="col-sm-4">
             <div class="form-group form-inline">
-              <%= f.label :customer_id %>
+              <%= f.label :customer_id, "Cliente" %>
               <%= f.collection_select :customer_id, @customers, :id, :dni, 
-                {selected: @sale.customer_id, include_blank: 'Seleccione Cliente'},
+                {selected: @budget.customer_id, include_blank: 'Seleccione Cliente'},
                 {class: "form-control"} %>
             </div>
           </div>
@@ -39,12 +39,12 @@
         </div>
         <hr>
         <br>
-        <div class="panel-body" id="sale-details">
-          <%= (@sale.sale_details.count > 0) ? render(partial: 'table', locals: { sale: @sale, show_actions: true }) : 'No hay detalles cargados' %>
+        <div class="panel-body" id="budget-details">
+          <%= (@budget.budget_details.count > 0) ? render(partial: 'table', locals: { budget: @budget, show_actions: true }) : 'No hay detalles cargados' %>
         </div>
         <div class="row">
           <div class="col-xs-2 col-xs-offset-5 text-center">
-            <%= link_to "Nuevo detalle", new_sale_sale_detail_path(sale_id: @sale.id), :remote => true , class: "btn btn-info"%>
+            <%= link_to "Nuevo detalle", new_budget_budget_detail_path(budget_id: @budget.id), :remote => true , class: "btn btn-info"%>
           </div>
         </div>
         <br>

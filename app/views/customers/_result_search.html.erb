@@ -7,6 +7,7 @@ Modificación de cada registro de la tabla Marcas -->
   </tr>
   <tr>
    <th>Nombre</th>
+   <th>Documento</th>
    <th>Direccion</th>
    <th>Telefono</th>
    <th colspan="2"></th>
@@ -18,6 +19,7 @@ Modificación de cada registro de la tabla Marcas -->
    <% @customers.each do |customer| %>
     <tr>
      <td><%= customer.name %></td>
+     <td><%= customer.dni %></td>
      <td><%= customer.address %></td>
      <td><%= customer.mobile %></td>
      <td>

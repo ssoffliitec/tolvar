@@ -36,6 +36,7 @@ class Item < ApplicationRecord
  validates :price, numericality: true
  validates :code, uniqueness: true
 
+ 
  def marca_name
   if self.marca
    self.marca.name

@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: budgets
+#
+#  id          :integer          not null, primary key
+#  number      :integer
+#  date        :date
+#  state       :integer
+#  customer_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  date: 2018-01-14
+  state: 1
+  customer_id: 1
+
+two:
+  number: 1
+  date: 2018-01-14
+  state: 1
+  customer_id: 1

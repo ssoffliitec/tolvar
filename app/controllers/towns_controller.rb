@@ -61,7 +61,7 @@ class TownsController < ApplicationController
   def destroy
     @town.destroy
     respond_to do |format|
-      format.html { redirect_to towns_url, notice: 'Town was successfully destroyed.' }
+      format.html { redirect_to towns_url, alert: 'Localidad Eliminada.' }
       format.json { head :no_content }
     end
   end

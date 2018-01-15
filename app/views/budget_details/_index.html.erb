@@ -1,0 +1,12 @@
+<% @budget.budget_details.each do |detail| %>
+	<tr>
+		<td><%= detail.number %></td>
+		<td><%= detail.item.description %></td>
+		<td class="text-right"><%= detail.qty %></td>
+		<td class="text-right"><%= number_to_currency(detail.price, unit: "$") %></td>
+		<td class="text-right"><%= number_to_currency(detail.subtotal, unit: "$") %></td>
+		<% if show_actions %>
+			<td><%= link_to "Eliminar", budget_budget_detail_path(detail.budget.id, detail.id), method: :delete, remote: true %> </td>
+		<% end %>
+	</tr>
+<% end %>
