@@ -17,11 +17,12 @@
        <% if devise_mapping.rememberable? -%>
         <div class="field">
          <%= f.check_box :remember_me %>
-         <%= f.label :remember_me %>
+         <%= f.label :remember_me, value: "Recordarme en este equipo" %>
         </div>
        <% end %>
  
        <%= f.submit "Iniciar", class: "btn btn-lg btn-success btn-block" %>
+       <br>
        <%= render "devise/shared/links" %>
       </fieldset>
      <% end %>

@@ -31,14 +31,14 @@ class SaleDetailsController < ApplicationController
 			end
 			@sale.sale_details << sale_detail
 		end
-		item_stock = Item.find(item_id)
-		if params[:sale_details][:qty].to_i <= item_stock.sale_stock
-			item_stock.sale_stock = item_stock.sale_stock - params[:sale_details][:qty].to_i
-			item_stock.stock = item_stock.stock - params[:sale_details][:qty].to_i
-			item_stock.save!
+		@item_stock = Item.find(item_id)
+		if params[:sale_details][:qty].to_i <= @item_stock.sale_stock
+			@item_stock.sale_stock = @item_stock.sale_stock - params[:sale_details][:qty].to_i
+			@item_stock.stock = @item_stock.stock - params[:sale_details][:qty].to_i
+			@item_stock.save!
 			@sale.save!
 		else
-			render new_sale_sale_detail_url, alert: 'Stock superado! máximo ' + item_stock.sale_stock.to_s
+			render new_sale_sale_detail_url, alert: 'Stock superado! máximo ' + @item_stock.sale_stock.to_s
 			render json: @sale_detail.errors, status: :unprocessable_entity
 		end
 			

@@ -47,6 +47,8 @@ class SalesController < ApplicationController
   # PATCH/PUT /sales/1.json
   def update
     @sale.confirmed!
+
+    puts params[:item_stock]
     respond_to do |format|
       if @sale.update(sale_params)
         format.html { redirect_to sales_url, notice: 'Venta Guardada Correctamente.' }

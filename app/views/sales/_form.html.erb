@@ -44,11 +44,12 @@
         </div>
         <div class="row">
           <div class="col-xs-2 col-xs-offset-5 text-center">
-            <%= link_to "Nuevo detalle", new_sale_sale_detail_path(sale_id: @sale.id), :remote => true , class: "btn btn-info"%>
+            <%= link_to "Agregar Artículo", new_sale_sale_detail_path(sale_id: @sale.id), :remote => true , class: "btn btn-info"%>
           </div>
         </div>
         <br>
-        <% message = (action_name == 'edit') ? "Volver" : "Aceptar" %>
+        <%= link_to 'Volver', sales_path, data: { confirm: "Se perderán los cambios ¿Está seguro?" }, class: "btn btn-default" %>
+        <% message = (action_name == 'edit') ? "Guardar" : "Guardar" %>
         <%= f.submit message, class: "btn btn-success" %>
       <% end %>
       <div class="modal fade" id="new-detail-modal" title="Modal"></div>

@@ -3,7 +3,7 @@ es:
     attributes:
       customer:
         name: "Nombre"
-        dni: "DNI"
+        dni: "DNI/CUIT"
         address: "Dirección"
         phone: "Teléfono Fijo"
         mobile: "Celular"

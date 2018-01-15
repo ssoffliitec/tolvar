@@ -20,7 +20,7 @@ class Customer < ApplicationRecord
     has_many :budgets
 
     validates :name, presence: true, :length => { :minimum => 3}
-    validates :dni, presence: true, :length => { :minimum => 7, :maximum => 9}, uniqueness: true
+    validates :dni, presence: true, :length => { :minimum => 7, :maximum => 11}, uniqueness: true
     validates :address, :length => { :maximum => 100 }
     validates :mobile, :length => { :maximum => 10 }
     validates :phone, :length => { :maximum => 10 }

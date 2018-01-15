@@ -22,7 +22,7 @@ class Search
 
   def categories_by_name
    if @keywords.present?
-     category = Category.where(name_condition).order(:name).offset(@offset).limit(@page_size)
+     categories = Category.where(name_condition).order(:name).offset(@offset).limit(@page_size)
      @number_of_records = Category.where(name_condition).count
    else
      categories = Category.order(:name).offset(@offset).limit(@page_size)

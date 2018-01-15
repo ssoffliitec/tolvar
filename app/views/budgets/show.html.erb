@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" id="container-show">
       <div class="col-xs-12">
       <div class="invoice-title">
         <h2>Presupuesto</h2>
@@ -39,6 +39,17 @@
       </div>
     </div>
   </div>
+  <%= link_to 'Volver', budgets_path ,class: "btn btn-default" %>
+  <input type="button" onclick="printDiv('container-show')" value="Imprimir Presupuesto" class="btn btn-success pull-right"/>
 </div>
 
-<%= link_to 'Volver', budgets_path ,class: "btn btn-default" %>
+
+<script>
+    function printDiv(nombreDiv) {
+      var contenido= document.getElementById(nombreDiv).innerHTML;
+      var contenidoOriginal= document.body.innerHTML;
+      document.body.innerHTML = contenido;
+      window.print();
+      document.body.innerHTML = contenidoOriginal;
+    }
+</script>
