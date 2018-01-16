@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
  # POST /items.json
  def create
   @item = Item.new(item_params)
-  @item.marca_id = params[:marca_id]
+  #@item.marca_id = params[:marca_id]
   respond_to do |format|
    if @item.save
     format.html { redirect_to items_url, notice: 'Artículo creado.' }
@@ -81,6 +81,6 @@ class ItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
-   params.require(:item).permit(:code, :description, :marca_id, :unit_id, :stock, :sale_stock,:min_stock, :category_id, :price, :picture)
+   params.require(:item).permit(:code, :description, :marca_id, :unit_id, :stock, :sale_stock,:min_stock, :category_id, :price, :picture, :abierto, :cerrado, :carrera, :superior, :inferior, :modelo, :anio, :pos)
   end
 end

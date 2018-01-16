@@ -12,15 +12,27 @@
           </div>
         <% end %>
         
-          <div class="col-lg-12 form-group">
+          <div class="col-lg-4 form-group">
             <%= f.label :description %>
             <%= f.text_field :description, id: :item_description, class: "form-control", placeholder: "Nombre de Artículo" %>
           </div>
-          <div class="col-lg-6 form-group">
+          <div class="col-lg-4 form-group">
+            <%= f.label :unit_id %>
+          <%= f.collection_select :unit_id, @units, :id, :name, 
+            {selected: @item.unit_id, include_blank: 'Seleccione Unidad de medida'},
+            {class: "form-control"} %>
+        </div>
+        <div class="col-lg-4 form-group">
+            <%= f.label :category_id %>
+          <%= f.collection_select :category_id, @categories, :id, :name, 
+            {selected: @item.category_id, include_blank: 'Seleccione Categoria'},
+            {class: "form-control"} %>
+        </div>
+          <div class="col-lg-3 form-group">
               <%= f.label :code %>
             <%= f.text_field :code, id: :item_code, class: "form-control", placeholder: "Código" %>
           </div>
-          <div class="col-lg-6 form-group">
+          <div class="col-lg-3 form-group">
               <%= f.label :marca %>
             <%= f.text_field :marca, id: "item_marca", class: "form-control" , placeholder: "Marca" %>
             <div style="display: none">
@@ -30,18 +42,39 @@
               <%= f.text_field :marca_name, id: "item_marca_name" %>
             </div>
           </div>
-          <div class="col-lg-6 form-group">
-              <%= f.label :unit_id %>
-            <%= f.collection_select :unit_id, @units, :id, :name, 
-              {selected: @item.unit_id, include_blank: 'Seleccione Unidad de medida'},
-              {class: "form-control"} %>
-          </div>
-          <div class="col-lg-6 form-group">
-              <%= f.label :category_id %>
-            <%= f.collection_select :category_id, @categories, :id, :name, 
-              {selected: @item.category_id, include_blank: 'Seleccione Categoria'},
-              {class: "form-control"} %>
-          </div>
+          <div class="col-lg-3 form-group">
+            <%= f.label :modelo %>
+          <%= f.text_field :modelo, id: :item_modelo, class: "form-control", placeholder: "Modelo" %>
+        </div>
+        <div class="col-lg-3 form-group">
+            <%= f.label :anio %>
+          <%= f.text_field :anio, id: :item_anio, class: "form-control", placeholder: "Año" %>
+        </div>
+          
+          <div class="col-lg-2 form-group">
+            <%= f.label :abierto %>
+          <%= f.text_field :abierto, id: :item_abierto, class: "form-control", placeholder: "Abierto" %>
+        </div>
+        <div class="col-lg-2 form-group">
+            <%= f.label :cerrado %>
+          <%= f.text_field :cerrado, id: :item_cerrado, class: "form-control", placeholder: "Cerrado" %>
+        </div>
+        <div class="col-lg-2 form-group">
+            <%= f.label :carrera %>
+          <%= f.text_field :carrera, id: :item_carrera, class: "form-control", placeholder: "Carrera" %>
+        </div>
+        <div class="col-lg-2 form-group">
+            <%= f.label :superior %>
+          <%= f.text_field :superior, id: :item_superior, class: "form-control", placeholder: "Superior" %>
+        </div>
+        <div class="col-lg-2 form-group">
+            <%= f.label :inferior %>
+          <%= f.text_field :inferior, id: :item_inferior, class: "form-control", placeholder: "Inferior" %>
+        </div>
+        <div class="col-lg-2 form-group">
+            <%= f.label :pos %>
+          <%= f.text_field :pos, id: :item_pos, class: "form-control", placeholder: "Posición" %>
+        </div>
           <div class="form-group col-lg-3">
               <%= f.label :stock %>
             <%= f.number_field :stock, id: :item_stock, class: "form-control", placeholder: "Stock Total" %>
